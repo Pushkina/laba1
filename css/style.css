@@ -49,12 +49,47 @@ a:hover{
 	width:396px;
 	height: 54px;
 	margin: auto;
+	padding-top: 10px;
 }
 #photo{
 	margin: 2px 15px 0px 0px;
 	float:left;
 }
 .name1{
-	font-size:19px;
+	font-size:20px;
+}
+#myImg{
+	width: 100%;
+	height: 100%;
+	margin: auto;
+	border: 0px solid;
+}
+.ris{
+	float: left;
+	width: 25%;
+	border: 0px solid red;
+}
+.ris img:hover{
+	opacity: 0.4;
+	transition: opacity .5s ease-out;
+}
+.ris img{
+	width: 98%;
+}
+#text {
+		background-color: #282828;
+		padding-top: 20px;
+		padding-bottom: 20px;
+}
+p{
+	text-align: justify;
+	color: white;
+	text-indent: 40px;
+	margin-left: 20px;
+	margin-right: 20px;
+
+	font: 19pt Times;
+
+	
 
 }
