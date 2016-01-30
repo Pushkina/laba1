@@ -1,0 +1,59 @@
+ul
+{
+	padding:0;
+	margin: 0;
+}
+
+
+#shapka{
+	width: 900px;
+	height: 100%;
+	margin:auto;
+
+}
+#portfolio {
+	text-align: left;
+	font: 25px sans-serif;
+	color: #0000;
+
+}
+#menu{
+	width: 900px;
+	height: 50px;
+	background-color: #282828;
+}
+#references {
+	color: white;
+	text-decoration: none;
+	margin-left: 19px;
+	padding-top: 10px;
+
+}
+
+#references a{
+color:white;
+} 
+
+
+#nav
+{
+	padding-top: 10px;
+}
+li 
+{
+	display:inline-block;
+	margin-left: 10px;
+
+}
+
+a
+{
+	color:white;
+	text-decoration: none;
+}
+
+a:hover
+{
+	color:red;
+}
+
