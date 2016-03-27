@@ -3,6 +3,69 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/AnchorScroller.js"></script> 
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			$(".slider").each(function ()
+			{
+				var obj = $(this);
+				$(obj).append("<div class='nav'></div>");
+
+				$(obj).find("li").each(function ()
+				{
+					$(obj).find(".nav").append("<span rel='"+$(this).index()+"'></span>");
+					$(this).addClass("slider"+$(this).index());
+				});
+
+				$(obj).find("span").first().addClass("on");
+			});
+			//
+
+			//---start
+			var target = $('.imgstyle');
+			var targetPos = target.offset().top;
+			var winHeight = $(window).height();
+			var scrollToElem = targetPos - winHeight;
+			$(window).scroll(function(){
+			  var winScrollTop = $(this).scrollTop();
+			  if(winScrollTop > scrollToElem){
+				//сработает когда пользователь доскроллит к элементу с классом .elem
+				$(".imgstyle").addClass('animated zoomIn');
+				$("#hhhhhhhh").addClass('animated zoomIn');
+				$("#photo").addClass('animated zoomIn');
+			  }
+			  else
+			  {
+			  $(".imgstyle").removeClass('animated zoomIn');
+			  $("#hhhhhhhh").addClass('animated zoomIn');
+			  $("#photo").addClass('animated zoomIn');
+			
+			  }
+			})
+			//---end
+
+		});
+
+	function sliderJS (obj, sl) // slider function
+	{
+		var ul = $(sl).find("ul");
+		var bl = $(sl).find("li.slider"+obj);
+		var step = $(bl).width();
+		$(ul).animate({marginLeft: "-"+step*obj}, 500);
+	}
+
+	$(document).on("click", ".slider .nav span", function() // slider click navigate
+	{
+		var sl = $(this).closest(".slider");
+		$(sl).find("span").removeClass("on");
+		$(this).addClass("on");
+		var obj = $(this).attr("rel");
+		sliderJS(obj, sl);
+		return false;
+	});
+</script>
 </head>
 <body>
 
@@ -12,10 +75,10 @@
 		 <div id="menu">
 			<div id="nav">
 				<ul>
-					<li><a href="#1ref">Мои данные</a></li>
-					<li><a href="#2ref">Фото</a></li>
-					<li><a href="#3ref">Хобби</a></li>
-					<li><a href="#4ref">Связь со мной</a></li>
+					<li><a href="#1ref"  onclick="return anchorScroller(this)">Мои данные</a></li>
+					<li><a href="#2ref"  onclick="return anchorScroller(this)">Фото</a></li>
+					<li><a href="#3ref"  onclick="return anchorScroller(this)">Хобби</a></li>
+					<li><a href="#4ref"  onclick="return anchorScroller(this)">Связь со мной</a></li>
 				</ul>
 			</div>
 		</div>
@@ -29,7 +92,7 @@
 						<img src="img/you.jpg" widt="200" height="250">
 					</div>
 					<div id="hhhhhhhh">
-					<div id='Myinfo' style="height:250px">
+					<div id='Myinfo' class="zoom" style="height:250px">
 						<div id="myInf" class="name1"><b>ФИО: </b>Пушкина Марина Сергеевна</div>
 						<div id="myInf1" class="name1"><b>Почтовый адрес: </b>Pu6kina@yandex.ua</div>
 						<div id="myInf2" class="name1"><b>Контактный телефон: </b>+3(8-050)920-53-12; +3(8-93)066-40-69</div>
@@ -43,28 +106,46 @@
 				<a name="2ref"></a>
 		    	<div id="inf2"  class="zagolovki">Фото</div>
 		    		<div class="imgRaz"></div>
-		    		<div id="myImg" style="height:480px"> 
+		    		<div id="myImg"  style="height:480px"> 
 		    			<div class="ris">
-							<img src="img/girl.jpg">
-							<img src="img/cat1.jpg">
+							<img class="imgstyle" src="img/girl.jpg">
+							<img  class="imgstyle" src="img/cat1.jpg">
 						</div>
 						<div class="ris">
-							<img src="img/cat2.jpg">
-							<img src="img/bear.jpg">
+							<img class="imgstyle" src="img/cat2.jpg">
+							<img class="imgstyle" src="img/bear.jpg">
 						</div>
 						<div class="ris">
-							<img src="img/egg.jpg">
-							<img src="img/egg.jpg">
-							<img src="img/egg.jpg">
+							<img class="imgstyle" src="img/egg.jpg">
+							<img class="imgstyle" src="img/egg.jpg">
+							<img class="imgstyle" src="img/egg.jpg">
 						</div>
 						<div class="ris">
-							<img src="img/cat1.jpg">
-							<img src="img/girl.jpg">
+							<img class="imgstyle" src="img/cat1.jpg">
+							<img class="imgstyle" src="img/girl.jpg">
 						</div>
 		    		</div>
 		    		</div>
+		<div class="slider">
+	<ul>
+		<li><img src="img/lab_1.jpg" alt="">wewe</li>
+		<li><img src="img/lab_2.jpg" alt=""></li>
+		<li><img src="img/lab_31.jpg" alt=""></li>
 
+	</ul>
+	<script type="text/javascript"> var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-23131825-1']);
+		_gaq.push(['_trackPageview']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})(); </script>
 
+		<script type="text/javascript">new Image().src = "http://counter.yadro.ru/hit?r"+
+			escape(document.referrer)+((typeof(screen)=="undefined")?"":
+				";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+				screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+";"+Math.random();</script>
+
+				<script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter20963398 = new Ya.Metrika({id:20963398, webvisor:true, clickmap:true, trackLinks:true, accurateTrackBounce:true, trackHash:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/20963398" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+</div>
 				<a name="3ref"></a>
 		    	<div id="inf3" class="zagolovki">Хобби</div>
 		    		
@@ -80,6 +161,8 @@
 		    		<div class="imgRaz"></div>
 		    		<div id="connection">
 		    			<div id="fon">
+		    				<div id="frame1">
+		    				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2672.377453803775!2d37.69023731572869!3d47.94842467229504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40e097742fe9eb7d%3A0xc1917c3b5345c304!2z0LLRg9C7LiDQn9C10YLRgNC-0LLRgdGM0LrQvtCz0L4sIDEwOSwg0JTQvtC90LXRhtGM0LosINCU0L7QvdC10YbRjNC60LAg0L7QsdC70LDRgdGC0Yw!5e0!3m2!1sru!2sua!4v1459072662889" width="250" height="200" frameborder="0" style="border:0" allowfullscreen></iframe></div>
 		    				<div id="vvod">
 			    			
 			    					<input type="text1" placeholder="Name">
@@ -102,6 +185,14 @@
 
 				<div class="imgRaz"></div>
 				<div id="podval">
+					<div id="social">
+						<img src="img/twit.ico"/>
+						<img src="img/vf.ico"/>
+						<img src="img/g_.ico"/>
+						<img src="img/f.ico"/>
+						<img src="img/odn.ico"/>
+						<img src="img/vk.ico"/>
+					</div>
 					<div id="textPod">
 						Pushkina все права защищены © 2016	
 					</div>

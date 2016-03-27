@@ -1,3 +1,19 @@
+body {
+	font: 12px/18px Arial, sans-serif;
+	height: 100%;
+	
+	
+	background-image: url(../img/bg.jpg); 
+	height:100%;
+	background-repeat: no-repeat;
+	min-width:900px;
+	
+	background-attachment: fixed ;
+	background-position :top;
+	 background-size: cover; /* Масштабируем фон */
+	
+	
+}
 
 #blok{
 	width: 900px;
@@ -68,12 +84,21 @@ a:hover{
 	margin: auto;
 	border: 0px solid;
 }
+#myInf1,#myInf2,#myInf3,#myInf4
+{
+	padding-top: 10px;
+}
 .ris{
 	float: left;
 	width: 25%;
 	border: 0px solid red;
 }
 .ris img:hover{
+	opacity: 0.4;
+	transition: opacity .5s ease-out;
+}
+
+#social img:hover{
 	opacity: 0.4;
 	transition: opacity .5s ease-out;
 }
@@ -174,7 +199,7 @@ p{
 	margin-left: 470px;
 	width:200px;
 	height: 200px;
-	margin-top: 200px;
+	margin-top: -200px;
 	border-left: 1px solid black;
 }
 #podval{
@@ -182,12 +207,17 @@ p{
 	height: 50px;
 	background-color: #282828;
 }
+
+
+
+
 #textPod {
-	width:100%;
+	width:400px;
 	font-size: 16px;
 	color: white;
 	text-align: center;
 	padding-top: 15px;
+	float:left;
 }
 input,textarea{
 	border:1px solid #C0C4BE;
@@ -197,3 +227,90 @@ input,textarea{
    width:165px;
    margin:3px 10px 10px 10px; 
 	}
+
+	#frame1
+	{
+		margin-left: 180px; 
+		width: 200px;
+		margin-top: 200px;
+	}
+#social
+{
+	margin-left: 10px;
+	margin-top: 10px;
+	width:230px;
+	height: 34px;
+	
+	float:left;
+}
+
+	/*-------------Анимация-------------------------------------------------------------*/
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    transform: scale3d(.3, .3, .3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.zoomIn {
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+}
+
+/*slider*/
+
+	.slider {
+			z-index: 9;
+			width: 900px;
+			height: 270px;
+			overflow: hidden;
+			margin: 0 0 7px;
+			position: relative;
+		}
+		.slider ul,
+		.slider li {
+			padding: 0;
+			margin: 0;
+			list-style-type: none;
+		}
+		.slider ul {
+			width: 9999px; 
+		}
+		.slider ul li {
+			list-style-type: none;
+			float: left;
+			width: 900px;
+			height: 290px;
+		}
+		.slider .nav {
+			position: absolute;
+			left: 425px;
+			bottom: 12px; 
+		}
+		.slider .nav span {
+			opacity: 0.9;
+			background: #4a3949;
+			margin: 0 8px 0 0;
+			width: 10px;
+			height: 10px;
+			border-radius: 10px;
+			cursor: pointer;
+			overflow: hidden;
+			display: block;
+			float: left;
+			box-shadow: 0 1px 2px #000;
+		}
+		.slider .nav span.on {
+			background: white;
+		}
